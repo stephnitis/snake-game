@@ -16,5 +16,7 @@ This project utilizes:
 
 ## References
 
+- [Basic usage of Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage)
+- [CanvasRenderingContext2D.strokeStyle](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/strokeStyle)
 - [Snake Game Tutorial 1](https://www.educative.io/blog/javascript-snake-game-tutorial)
 - [Snake Game Tutorial 2](https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/)
