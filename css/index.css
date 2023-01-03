@@ -1,3 +1,5 @@
+
+/* transform property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS */
 #gameBoard {
   position: absolute;
   top: 50%;

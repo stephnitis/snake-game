@@ -27,6 +27,11 @@ document.addEventListener('keydown', changeDirection);
 
 // function called repeatedly to keep game going
 function main() {
+
+  // hoist endGame function to stop play if snake hits sides of board
+  if (endGame()) return;
+  changeDirection = false;
+
   // utilizing setTimeout to auromatically move the snake, but with a slight delay so that the snake moves more fluidly
   // we also recursively call our main function so that the movement will continue
   setTimeout(function onTick() {
@@ -84,17 +89,17 @@ function changeDirection(event) {
   const goingRight = dx === 10;
   const goingLeft = dx === -10;
 
-  if (keyPressed === LEFT_KEY && !goingRight){
+  if (keyPressed === LEFT_KEY && !goingRight) {
     dx = -10;
     dy = 0;
   }
 
-  if(keyPressed === UP_KEY && !goingDown){
+  if (keyPressed === UP_KEY && !goingDown) {
     dx = 0;
     dy = -10;
   }
 
-  if (keyPressed === RIGHT_KEY && !goingLeft){
+  if (keyPressed === RIGHT_KEY && !goingLeft) {
     dx = 10;
     dy = 0;
   }
@@ -104,4 +109,21 @@ function changeDirection(event) {
     dy = 10;
   }
 
-}
+};
+
+// function with conditional statements to end game if snake hits edges of board
+function endGame() {
+  for (let i = 4; i < snake.length; i++) {
+    const hasCollided = snake[i].x === snake[0].x && snake[i].y === snake[0].y;
+    if (hasCollided) {
+      return true;
+    }
+  }
+
+  const hitLeftWall = snake[0].x < 0;
+  const hitRightWall = snake[0].x > gameBoard.width - 10;
+  const hitTopWall = snake[0].y < 0;
+  const hitBottomWall = snake[0].y > gameBoard.height - 10;
+
+  return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
+};
