@@ -1,3 +1,6 @@
+body {
+  background-color: black;
+}
 
 /* transform property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS */
 #gameBoard {
@@ -7,7 +10,16 @@
   transform: translate(-50%, -50%);
 }
 
-#score {
+#scoreboard {
   text-align: center;
-  font-size: 140px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+  color: rgb(131, 226, 131);
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: rgb(69, 71, 78);
+  margin-top: 5%;
+}
+
+p {
+  margin: 2%;
 }

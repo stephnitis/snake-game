@@ -55,8 +55,8 @@ function main() {
 
 // draws the game board canvas
 function reset() {
-  gameBoard_ctx.fillStyle = 'rgb(237, 237, 240)';
-  gameBoard_ctx.strokeStyle = 'rgb(0, 0, 3)';
+  gameBoard_ctx.fillStyle = 'rgb(0, 0, 0)';
+  gameBoard_ctx.strokeStyle = 'rgb(103, 105, 110)';
   gameBoard_ctx.fillRect(0, 0, gameBoard.width, gameBoard.height);
   gameBoard_ctx.strokeRect(0, 0, gameBoard.width, gameBoard.height);
 };
@@ -112,6 +112,7 @@ function moveSnake() {
   // if snake has eaten, we add a new "head" growing the snake
   // otherwise we remove "head" reducing size of snake
   const snakeHasEaten = snake[0].x === foodX && snake[0].y === foodY;
+
   if (snakeHasEaten) {
     //increase score
     score += 10;
