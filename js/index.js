@@ -7,25 +7,36 @@ const gameBoard_ctx = gameBoard.getContext('2d');
 // We specify initial location of snake on our board through an array of coordinates
 // the x-coordinate decrements to represent the snake's body
 let snake = [
-  {x: 200, y: 200},
-  {x: 190, y: 200},
-  {x: 180, y: 200},
-  {x: 170, y: 200},
-  {x: 160, y: 200},
+  { x: 200, y: 200 },
+  { x: 190, y: 200 },
+  { x: 180, y: 200 },
+  { x: 170, y: 200 },
+  { x: 160, y: 200 },
 ];
+
+// dx is the x-axis coordinate in the destination canvas at which to place the top-left corner of the source image
+// dy is the y-axis coordinate in the destination canvas
+let dx = 10;
+let dy = 0;
 
 //start game by hoisting main function
 main();
 
 // function called repeatedly to keep game going
 function main() {
-  reset();
-  drawSnake();
+  // utilizing setTimeout to auromatically move the snake, but with a slight delay so that the snake moves more fluidly
+  // we also recursively call our main function so that the movement will continue
+  setTimeout(function onTick() {
+    reset();
+    moveSnake();
+    drawSnake();
+    main();
+  }, 100);
 }
 
 // draws the canvas
 function reset() {
-  
+
   gameBoard_ctx.fillStyle = 'rgb(237, 237, 240)';
   gameBoard_ctx.strokeStyle = 'rgb(0, 0, 3)';
   gameBoard_ctx.fillRect(0, 0, gameBoard.width, gameBoard.height);
@@ -49,10 +60,9 @@ function drawSnake() {
 };
 
 // here we create a new head and tehn  add the new head to the beginning, thus moving the snake: this is our horizontal movement
-// dx is the x-axis coordinate in the destination canvas at which to place the top-left corner of the source image
-// dy is the y-axis coordinate in the destination canvas
 function moveSnake() {
   const head = { x: snake[0].x + dx, y: snake[0].y + dy };
   snake.unshift(head);
   snake.pop();
-}
+};
+
