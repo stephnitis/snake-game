@@ -14,6 +14,14 @@ This project utilizes:
 
 ## How To Use
 
+[Play Here](https://stephnitis.github.io/snake-game/)
+
+- Use the arrow keys to change the direction of the snake
+- Direct snake to eat the food (red square)
+- 10 points for each piece of food eaten, and snake grows
+- If snake hits the edges game ends
+- Currently game can only be restarted via browser refresh
+
 ## References
 
 - [Basic usage of Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage)
